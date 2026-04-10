@@ -1,0 +1,14 @@
+D:\javaji gagansai\CODEING\c#\MyApp\bin\Debug\net9.0\MyApp.exe
+D:\javaji gagansai\CODEING\c#\MyApp\bin\Debug\net9.0\MyApp.deps.json
+D:\javaji gagansai\CODEING\c#\MyApp\bin\Debug\net9.0\MyApp.runtimeconfig.json
+D:\javaji gagansai\CODEING\c#\MyApp\bin\Debug\net9.0\MyApp.dll
+D:\javaji gagansai\CODEING\c#\MyApp\bin\Debug\net9.0\MyApp.pdb
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.AssemblyInfoInputs.cache
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.AssemblyInfo.cs
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.csproj.CoreCompileInputs.cache
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.dll
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\refint\MyApp.dll
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.pdb
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\MyApp.genruntimeconfig.cache
+D:\javaji gagansai\CODEING\c#\MyApp\obj\Debug\net9.0\ref\MyApp.dll
