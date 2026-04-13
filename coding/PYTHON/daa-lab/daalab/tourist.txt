@@ -1,0 +1,21 @@
+from itertools import permutations
+def tourist_trip(places, time_matrix):
+    min_time = float('inf')
+    best_route = None
+    for perm in permutations(places[1:]):
+        route = ('Park',) + perm + ('Park',)
+        time = 0
+        for i in range(len(route)-1):
+            time += time_matrix[route[i]][route[i+1]]
+        if time < min_time:
+            min_time = time
+            best_route = route
+    return best_route, min_time
+time_matrix = {
+    'Park': {'Museum': 15, 'Zoo': 20},
+    'Museum': {'Park': 15, 'Zoo': 10},
+    'Zoo': {'Park': 20, 'Museum': 10}
+}
+places = ['Park', 'Museum', 'Zoo']
+route, total_time = tourist_trip(places, time_matrix)
+print(f"Shortest route: {route} with total time {total_time} minutes")

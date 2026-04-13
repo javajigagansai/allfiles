@@ -1,0 +1,17 @@
+def maximize_distance(fuels, capacity):
+    fuels.sort(key=lambda x: x['efficiency'], reverse=True)  
+    total_distance = 0
+    for fuel in fuels:
+        if capacity == 0:
+            break
+        litres = min(fuel['litres'], capacity)
+        total_distance += litres * fuel['efficiency']
+        capacity -= litres
+    return total_distance
+fuels = [
+    {'name': 'Diesel', 'litres': 30, 'efficiency': 5},
+    {'name': 'Petrol', 'litres': 50, 'efficiency': 4},
+    {'name': 'Ethanol', 'litres': 20, 'efficiency': 3}
+]
+capacity = 100
+print(f"Maximum distance: {maximize_distance(fuels, capacity)} km")

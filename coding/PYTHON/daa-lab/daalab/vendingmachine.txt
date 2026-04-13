@@ -1,0 +1,17 @@
+def fractional_knapsack(items, capacity):
+    items.sort(key=lambda x: x['value_per_kg'], reverse=True)
+    total_profit = 0.0
+    for item in items:
+        if capacity == 0:
+            break
+        weight = min(item['weight'], capacity)
+        total_profit += weight * item['value_per_kg']
+        capacity -= weight
+    return total_profit
+items = [
+    {'name': 'Chips', 'weight': 2, 'value_per_kg': 50},
+    {'name': 'Chocolates', 'weight': 3, 'value_per_kg': 80},
+    {'name': 'Nuts', 'weight': 5, 'value_per_kg': 60}
+]
+capacity = 10
+print(f"Maximum profit: ₹{fractional_knapsack(items, capacity)}")

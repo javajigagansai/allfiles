@@ -1,0 +1,22 @@
+from itertools import permutations
+def tsp(cities, dist):
+    min_cost = float('inf')
+    best_route = None
+    for perm in permutations(cities[1:]):
+        route = ('A',) + perm + ('A',)
+        cost = 0
+        for i in range(len(route)-1):
+            cost += dist[route[i]][route[i+1]]
+        if cost < min_cost:
+            min_cost = cost
+            best_route = route
+    return best_route, min_cost
+dist = {
+    'A': {'B': 10, 'C': 15, 'D': 15},
+    'B': {'A': 10, 'C': 35, 'D': 20},
+    'C': {'A': 15, 'B': 35, 'D': 30},
+    'D': {'A': 15, 'B': 20, 'C': 30}
+}
+cities = ['A', 'B', 'C', 'D']
+route, distance = tsp(cities, dist)
+print(f"Shortest route: {route} with total distance {distance}")

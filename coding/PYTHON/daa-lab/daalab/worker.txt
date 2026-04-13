@@ -1,0 +1,16 @@
+def task_assignment(tasks, capacity):
+    tasks.sort(reverse=True)
+    workers = []
+    for task in tasks:
+        placed = False
+        for i in range(len(workers)):
+            if workers[i] + task <= capacity:
+                workers[i] += task
+                placed = True
+                break
+        if not placed:
+            workers.append(task)
+    return len(workers)
+tasks = [4, 2, 6, 3, 5]
+capacity = 8
+print(f"Minimum number of workers needed: {task_assignment(tasks, capacity)}")
