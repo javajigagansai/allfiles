@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px 15px;
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+#resultsList {
+    list-style-type: none;
+    padding: 0;
+}
+    </style>
+    <header>
+        <h1>Find Your Perfect Stay</h1>
+    </header>
+
+    <main>
+        <form id="searchForm">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="checkIn">Check-in Date:</label>
+            <input type="date" id="checkIn" name="checkIn" required>
+
+            <label for="checkOut">Check-out Date:</label>
+            <input type="date" id="checkOut" name="checkOut" required>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+
+            <button type="submit">Search</button>
+        </form>
+
+        <section id="results">
+            <h2>Available Hotels:</h2>
+            <ul id="resultsList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Hotel Booking App</p>
+    </footer>
+
+</body>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const location = document.getElementById('location').value;
+    const checkIn = document.getElementById('checkIn').value;
+    const checkOut = document.getElementById('checkOut').value;
+    const guests = document.getElementById('guests').value;
+
+    // Sample data for demonstration
+    const hotels = [
+        { name: "Hotel Sunshine", location: "Delhi", price: 3000, rating: 4.5 },
+        { name: "Cozy Inn", location: "Bangalore", price: 2500, rating: 4.0 },
+        { name: "Luxury Stay", location: "Mumbai", price: 5000, rating: 5.0 }
+    ];
+
+    const resultsList = document.getElementById('resultsList');
+    resultsList.innerHTML = '';
+
+    hotels.forEach(hotel => {
+        if (hotel.location.toLowerCase() === location.toLowerCase()) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${hotel.name} - ₹${hotel.price} - Rating: ${hotel.rating}`;
+            resultsList.appendChild(listItem);
+        }
+    });
+});
+</script>
+</html>

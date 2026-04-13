@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGs and Hostel Vaccines Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Find PGs and Hostels with Vaccine Information</h1>
+    </header>
+
+    <main>
+        <form id="searchForm">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="type">Type:</label>
+            <select id="type" name="type">
+                <option value="All">All</option>
+                <option value="PG">PG</option>
+                <option value="Hostel">Hostel</option>
+            </select>
+
+            <label for="price">Price Range (in INR):</label>
+            <input type="number" id="minPrice" name="minPrice" placeholder="Min" min="0">
+            <input type="number" id="maxPrice" name="maxPrice" placeholder="Max" min="0">
+
+            <label for="amenities">Amenities:</label>
+            <select id="amenities" name="amenities">
+                <option value="All">All</option>
+                <option value="WiFi">WiFi</option>
+                <option value="AC">AC</option>
+                <option value="Food">Food</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+
+        <section id="results">
+            <h2>Results:</h2>
+            <ul id="resultsList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PGs and Hostel Finder</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

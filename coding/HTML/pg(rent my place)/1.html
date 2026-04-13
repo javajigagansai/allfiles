@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental PGs, Living Rooms, and Hostels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .search, .filters, .rentals, .details, .contact {
+            padding: 20px;
+        }
+
+        .search form, .filters form, .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .listing {
+            display: inline-block;
+            width: 45%;
+            margin: 10px 2.5%;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .listing img {
+            width: 100%;
+            height: auto;
+        }
+
+        .listing a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .listing a:hover {
+            text-decoration: underline;
+        }
+
+        .featured, .rentals {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .details img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details ul li {
+            margin: 5px 0;
+        }
+
+        /* Review Section */
+        .review-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+
+        .review {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .review h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .review p {
+            margin: 5px 0;
+        }
+
+        .rating {
+            color: gold;
+        }
+
+        .review .review-images img {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+
+        /* Contact Information Section */
+        .owner-contact {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .owner-contact p {
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to RentMyPlace</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#listings">Listings</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Homepage (Home Section) -->
+    <section id="home">
+        <div class="search">
+            <h2>Find Your Perfect Rental</h2>
+            <form action="#listings">
+                <label for="location">Select Location:</label>
+                <select id="location" name="location">
+                    <option value="delhi">Delhi</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="mumbai">Mumbai</option>
+                </select>
+                <label for="room-type">Room Type:</label>
+                <select id="room-type" name="room-type">
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="shared">Shared</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Featured Listings -->
+        <section class="featured">
+            <h2>Featured Listings</h2>
+            <div class="listing">
+                <img src="https://via.placeholder.com/300x200" alt="PG 1">
+                <p>PG in Delhi, Near Metro Station</p>
+                <a href="#details">View Details</a>
+            </div>
+            <div class="listing">
+                <img src="https://via.placeholder.com/300x200" alt="PG 2">
+                <p>Hostel in Bangalore, Quiet Area</p>
+                <a href="#details">View Details</a>
+            </div>
+        </section>
+    </section>
+
+    <!-- Listings Page -->
+    <section id="listings">
+        <h2>Available Rentals</h2>
+
+        <section class="filters">
+            <h2>Filter Listings</h2>
+            <form action="#listings">
+                <label for="location-filter">Select Location:</label>
+                <select id="location-filter" name="location">
+                    <option value="delhi">Delhi</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="mumbai">Mumbai</option>
+                </select>
+                <label for="room-type-filter">Room Type:</label>
+                <select id="room-type-filter" name="room-type">
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="shared">Shared</option>
+                </select>
+                <button type="submit">Apply Filters</button>
+            </form>
+        </section>
+
+        <section class="rentals">
+            <div class="listing">
+                <img src="https://via.placeholder.com/300x200" alt="PG 1">
+                <h3>PG in Delhi, Near Metro Station</h3>
+                <p>Shared Room: ₹8000/month</p>
+                <a href="#details">View Details</a>
+            </div>
+            <div class="listing">
+                <img src="https://via.placeholder.com/300x200" alt="PG 2">
+                <h3>Hostel in Bangalore, Quiet Area</h3>
+                <p>Single Room: ₹12000/month</p>
+                <a href="#details">View Details</a>
+            </div>
+        </section>
+    </section>
+
+    <!-- Details Page -->
+    <section id="details">
+        <h2>PG in Delhi, Near Metro Station</h2>
+        <div class="details">
+            <img src="https://via.placeholder.com/300x200" alt="PG 1">
+            <h3>Description</h3>
+            <p>Well-maintained PG with 2 sharing rooms. Located near a metro station, very convenient for daily commuting.</p>
+            <h4>Price: ₹8000/month</h4>
+            <h5>Amenities</h5>
+            <ul>
+                <li>24/7 Security</li>
+                <li>Wi-Fi</li>
+                <li>Fully Furnished</li>
+                <li>Meals Available</li>
+            </ul>
+            <a href="#contact">Contact for Booking</a>
+        </div>
+
+        <!-- Owner's Contact Information -->
+        <section class="owner-contact">
+            <h3>PG Owner's Contact Information</h3>
+            <p><strong>Owner Name:</strong> Mr. John Doe</p>
+            <p><strong>Contact Number:</strong> <a href="tel:+911234567890">+91 123 456 7890</a></p>
+        </section>
+
+        <!-- Review Section -->
+        <section class="review-section">
+            <h3>Reviews</h3>
+
+            <!-- Review 1 -->
+            <div class="review">
+                <h4>John Doe <span class="rating">★★★★★</span></h4>
+                <p><strong>Review:</strong> Great PG! Clean and well-maintained. I really liked the location as it's very close to the metro station. Highly recommend!</p>
+                <p><em>Date: 20th March, 2025</em></p>
+                <div class="review-images">
+                    <img src="https://via.placeholder.com/80" alt="Room 1">
+                    <img src="https://via.placeholder.com/80" alt="Room 2">
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review">
+                <h4>Jane Smith <span class="rating">★★★★☆</span></h4>
+                <p><strong>Review:</strong> The place is nice and the staff is friendly. However, the food could be better. Overall, a good experience.</p>
+                <p><em>Date: 18th March, 2025</em></p>
+                <div class="review-images">
+                    <img src="https://via.placeholder.com/80" alt="Room 3">
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact">
+            <form action="#">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 RentMyPlace. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

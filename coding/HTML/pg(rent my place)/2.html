@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Finder</title>
+ <style>
+    
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filters label, .filters select, .filters input {
+  margin: 5px;
+}
+
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 80%;
+}
+
+.room {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.room img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.room h3 {
+  color: #333;
+}
+
+footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+ </style>
+</head>
+<body>
+  <header>
+    <h1>Rent my place</h1>
+    <p>Find PGs and Hostels near you!</p>
+  </header>
+
+  <div class="container">
+    <div class="filters">
+      <label for="type">Accommodation Type:</label>
+      <select id="type" onchange="filterRooms()">
+        <option value="">All</option>
+        <option value="PG">PG</option>
+        <option value="Hostel">Hostel</option>
+      </select>
+      <label for="price">Price Range:</label>
+      <input type="range" id="price" min="1000" max="10000" step="500" value="10000" onchange="filterRooms()">
+      <span id="priceValue">₹10000</span>
+    </div>
+
+    <div id="room-list" class="room-list">
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Room Finder</p>
+  </footer>
+
+  <script src="2.js"></script>
+</body>
+</html>
+
