@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Future Academy</title>
+  
+</head>
+<style>
+    html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f4f7fb;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #004aad;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* Hero */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(120deg, #007bff, #00c6ff);
+  color: white;
+  overflow: hidden;
+}
+.hero-content {
+  animation: slideUp 1.2s ease-out forwards;
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards 0.5s;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Button effect */
+.btn-glow {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+  transition: 0.3s;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 20px #fff, 0 0 40px #00c6ff;
+  transform: scale(1.05);
+}
+
+/* Courses */
+.course-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+.course {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  margin: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.4s;
+}
+.course:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Contact */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+form input, form textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+form input:focus, form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0,123,255,0.2);
+}
+
+/* Reveal animation for scrolling */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: #004aad;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+</style>
+<body>
+  <header>
+    <h1>Bright Future Academy</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2 class="fade-in">Learn. Grow. Succeed.</h2>
+      <p class="fade-in-delay">Empowering students through quality education and innovation.</p>
+      <button onclick="joinNow()" class="btn-glow">Join Now</button>
+    </div>
+  </section>
+
+  <section id="courses" class="reveal">
+    <h2>Our Courses</h2>
+    <div class="course-list">
+      <div class="course">
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript, and modern frameworks.</p>
+      </div>
+      <div class="course">
+        <h3>Data Science</h3>
+        <p>Python, Machine Learning, and AI fundamentals.</p>
+      </div>
+      <div class="course">
+        <h3>Cyber Security</h3>
+        <p>Ethical hacking and digital defense strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <h2>About Us</h2>
+    <p>Bright Future Academy provides industry-focused courses with expert mentors and real-world projects.</p>
+  </section>
+
+  <section id="contact" class="reveal">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit" class="btn-glow">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bright Future Academy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function joinNow() {
+  alert("Thanks for your interest! We’ll contact you soon.");
+}
+
+// Scroll reveal effect
+window.addEventListener('scroll', () => {
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+});
+  </script>
+</body>
+</html>
