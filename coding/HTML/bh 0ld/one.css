@@ -1,0 +1,21 @@
+body {
+    background-color: #dfdfdf;
+}
+
+.login {
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fdfdfd;
+}
+
+.login {
+    
+}
+
+.login .logo {
+    width: 15vw;
+    /* height: 807px; */
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="home.css">
+
+    <!-- Excel library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<main class="registration">
+    <div class="form-container">
+        <h1>Student Registration Form</h1>
+        <p>Fill the details to register</p>
+
+        <form id="regForm">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+
+            <input type="date" name="dob" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+
+            <select name="course" required>
+                <option value="">Select Course</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>MEC</option>
+            </select>
+
+            <select name="year" required>
+                <option value="">Select Year</option>
+                <option>1st</option>
+                <option>2nd</option>
+                <option>3rd</option>
+                <option>4th</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</main>
+
+<script src="home.js"></script>
+</body>
+</html>
