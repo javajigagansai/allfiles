@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.dashboard{
+    align-items: center;
+}
+#name{
+    background: linear-gradient(to right, #1b6ece, #6917d4);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: large;
+    font-weight: 100;
+}

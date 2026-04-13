@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    background:linear-gradient(to bottom,);
+}
+.text{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color: rgb(149, 31, 118);   
+}
+.dashboard{
+background-color: rgb(236, 123, 123);
+
+
+}
+button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+       background: linear-gradient(to left,red,pink);
+       align-content: center;
+}
+.normal{
+    color: black;
+
+    
+}
+strong{
+    background: linear-gradient(to left,red,pink);
+    -webkit-background-clip: text;
+    color: transparent;
+
+}
+.spidy{
+    position: absolute ;
+    top: 22%;
+    left: 9.0%;
+    bottom: 10%;
+    width: 19%;
+   
+}
+#sb{
+    font-size: 10%;
+}
+.image{
+    position: absolute ;
+    top: 22%;
+    left: 9.0%;
+    bottom: 10%;
+    width: 19%;
+   
+}

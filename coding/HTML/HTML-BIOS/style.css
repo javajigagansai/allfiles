@@ -1,0 +1,81 @@
+:root {
+    --bg-color: #f8f9fa;
+    --text-main: #1a1a1a;
+    --accent: #ff6b35;
+    --glass: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Glassmorphism Nav */
+.glass-nav {
+    margin-top: 20px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.logo { font-weight: 800; font-size: 1.2rem; }
+.logo span { color: var(--accent); }
+
+ul { list-style: none; display: flex; gap: 20px; }
+ul li a { text-decoration: none; color: #666; font-size: 0.9rem; }
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-top: 100px;
+    max-width: 800px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.join-btn, .explore-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 1px solid #1a1a1a;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.join-btn:hover, .explore-btn:hover {
+    background: #1a1a1a;
+    color: white;
+}

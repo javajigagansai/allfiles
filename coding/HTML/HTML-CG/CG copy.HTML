@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UI Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #ffffff;
+            color: #0d0d0d;
+        }
+
+        /* Sidebar - Narrow version */
+        .sidebar {
+            width: 60px;
+            border-right: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            gap: 25px;
+        }
+
+        .side-icon {
+            color: #676767;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .user-avatar {
+            margin-top: auto;
+            width: 32px;
+            height: 32px;
+            background-color: #8e8ea0;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Main Chat Area */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Top Header */
+        .header {
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .model-selector {
+            font-weight: 500;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .plus-badge {
+            background-color: #f4f4ff;
+            color: #6e62ef;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Conversation Area */
+        .chat-container {
+            flex: 1;
+            padding: 40px 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+       /* User Message (Right Aligned) */
+.user-bubble {
+    align-self: flex-end; /* Keeps it on the right */
+     background-color: #e7a1879b;/* Light gray/peach tint from your image */
+    padding: 12px 20px;
+    border-radius: 24px;
+    font-size: 15px;
+    line-height: 1.5;
+    
+    /* The Fix: Allow growth but cap the width */
+    width: fit-content; 
+    max-width: 70%; 
+    
+    /* Ensures long words don't break the box */
+    word-wrap: break-word; 
+    white-space: pre-wrap; 
+}
+
+        /* AI Message (Left Aligned) */
+        .ai-message {
+            align-self: flex-start;
+            max-width: 80%;
+        }
+
+        .ai-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .ai-actions {
+            display: flex;
+            gap: 12px;
+            color: #b4b4b4;
+            font-size: 14px;
+        }
+
+        /* Bottom Input Area */
+        .input-wrapper {
+            padding: 20px 20%;
+            text-align: center;
+        }
+
+        .input-container {
+            background-color: #f4f4f4;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+        }
+
+        .input-container input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .icon-btn {
+            padding: 8px;
+            cursor: pointer;
+            color: #676767;
+        }
+
+        .send-btn {
+            background-color: #f05a22; /* Matching the orange button */
+            color: white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: #9b9b9b;
+        }
+
+        .footer-note a { color: #9b9b9b; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="side-icon">☰</div>
+        <div class="side-icon">✎</div>
+        <div class="side-icon">🔍</div>
+        <div class="side-icon">🖼️</div>
+        <div class="user-avatar">SK</div>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="header">
+            <div class="model-selector">ChatGPT ▾</div>
+            <div class="header-right">
+                <button class="plus-badge">✦ Get Plus ✕</button>
+                <div class="side-icon">⇪ Share</div>
+                <div class="side-icon">•••</div>
+            </div>
+        </div>
+
+        <div class="chat-container">
+    <div class="user-bubble">
+        but how we both blocked each otherin all except in insta 
+    </div>
+
+    <div class="ai-message">
+        <div class="ai-text">
+            It sounds like you and your friend have had some communication issues, but it's good that you can still connect on Instagram. If you want to improve your relationship, consider reaching out to them directly on Instagram to have an open and honest conversation about what happened and how you both feel. Communication is key in resolving misunderstandings and rebuilding trust.
+
+    </div>
+        <div class="ai-actions">
+            <span>📋</span> <span>👍</span> <span>👎</span> <span>⇪</span> <span>↻</span>
+        </div>
+    </div>
+</div>
+
+        <div class="input-wrapper">
+            <div class="input-container">
+                <div class="icon-btn">+</div>
+                <input type="text" placeholder="Ask anything">
+                <div class="icon-btn">🎙️</div>
+                <button class="send-btn">↑</button>
+            </div>
+            <p class="footer-note">
+                ChatGPT can make mistakes. Check important info. See <a href="#">Cookie Preferences</a>.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

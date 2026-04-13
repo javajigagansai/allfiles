@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+}
+button{
+    text-align: center;
+    text-decoration: dashed;
+    font-weight: 300;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 2.9rem;
+    border: 2rem;
+    background-color: rgb(66, 66, 207);
+}
+img{
+    background-color: rgb(102, 102, 255);
+    width: 1280px;;
+    height: 100px;
+}
+div{
+    border: 1rem;
+    padding: 9rem;
+    text-align: left;
+    font-weight: 700;
+}
+.my-box {
+    width: 250px;
+    height: 150px;
+    background-color: lightblue;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px; 
+    text-align: center;
+    }

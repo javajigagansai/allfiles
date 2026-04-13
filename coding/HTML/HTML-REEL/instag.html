@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta Messenger Clone</title>
+    <link rel="stylesheet" href="instag.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="username">my_username <i class="fas fa-chevron-down"></i></span>
+                <i class="far fa-edit new-chat-icon"></i>
+            </div>
+            
+            <div class="messages-label">
+                <span>Messages</span>
+                <span>Requests</span>
+            </div>
+
+            <div class="contacts-list">
+                <div class="contact active">
+                    <img src="https://via.placeholder.com/50" alt="User Profile" class="avatar">
+                    <div class="contact-info">
+                        <div class="contact-name">Jane Doe</div>
+                        <div class="last-message">Active 1h ago</div>
+                    </div>
+                </div>
+                <div class="contact">
+                    <img src="https://via.placeholder.com/50" alt="User Profile" class="avatar">
+                    <div class="contact-info">
+                        <div class="contact-name">John Smith</div>
+                        <div class="last-message">You sent a photo. &bull; 2h</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+           <header class="chat-header">
+    <div class="user-details">
+        <img src="https://via.placeholder.com/50" alt="User Profile" class="avatar small">
+        <span class="chat-name">Jane Doe</span>
+    </div>
+    <div class="header-icons">
+        <svg aria-label="Audio Call" class="nav-icon" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M18.232 15.707a1 1 0 0 0-1.258-.17l-2.52 1.512a1 1 0 0 1-1.246-.175l-4.736-4.736a1 1 0 0 1-.175-1.246l1.512-2.52a1 1 0 0 0-.17-1.258L4.69 2.164a1 1 0 0 0-1.27-.197L1.44 3.514A2.73 2.73 0 0 0 0 5.861c0 8.01 6.13 14.14 14.139 14.139a2.73 2.73 0 0 0 2.347-1.44l1.547-1.98a1 1 0 0 0-.197-1.27l-4.95-4.95Z"></path></svg>
+        
+        <svg aria-label="Video Call" class="nav-icon" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M23.353 7.824a1.002 1.002 0 0 0-.706-.292H13.25a1 1 0 0 0-1 1v9.936a1 1 0 0 0 1 1h9.397a1 1 0 0 0 1-1V8.532a1.002 1.002 0 0 0-.294-.708ZM9.116 11.235l-3.35-2.234a1.001 1.001 0 0 0-1.554.832v5.334a1.001 1.001 0 0 0 1.554.832l3.35-2.234a1 1 0 0 0 0-1.664Z"></path></svg>
+        
+        <svg aria-label="View Information" class="nav-icon" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12.001" cy="12.005" fill="none" r="10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><circle cx="11.819" cy="7.709" r="1.25"></circle><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="10.569" x2="13.432" y1="16.777" y2="16.777"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="10.569" x2="13.432" y1="12.499" y2="12.499"></line></svg>
+    </div>
+</header>
+
+            <div class="messages-box">
+                <div class="message received">
+                    <img src="https://via.placeholder.com/30" class="avatar tiny">
+                    <div class="bubble">
+                        Hey! How is the coding project going?
+                    </div>
+                </div>
+
+                <div class="message sent">
+                    <div class="bubble">
+                        It's going great! Working on the HTML right now.
+                    </div>
+                </div>
+                
+                <div class="message sent">
+                    <div class="bubble">
+                        Do you like the layout?
+                    </div>
+                </div>
+            </div>
+
+           <div class="input-area">
+    <div class="input-wrapper">
+        <svg aria-label="Emoji" class="input-icon" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path></svg>
+        
+        <input type="text" placeholder="Message...">
+        
+        <svg aria-label="Add Photo or Video" class="input-icon" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M6.549 5.013A1.557 1.557 0 1 0 8.106 6.57a1.557 1.557 0 0 0-1.557-1.557Z"></path><path d="m2 14.849 3.843-3.856a1.564 1.564 0 0 1 2.212 0l6.059 6.069a.748.748 0 0 0 1.062 0l1.48-1.483a1.571 1.571 0 0 1 2.219 0l3.125 3.125a.75.75 0 0 1-.531 1.287H2.75a.75.75 0 0 1-.75-.75v-4.392Z"></path></svg>
+        
+        <svg aria-label="Like" class="input-icon" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
+    </div>
+</div>
+        </main>
+
+    </div>
+
+</body>
+</html>
