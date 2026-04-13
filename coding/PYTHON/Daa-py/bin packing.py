@@ -1,0 +1,16 @@
+def bin_packing(items, capacity):
+    items.sort(reverse=True)
+    backpacks = []
+    for item in items:
+        placed = False
+        for i in range(len(backpacks)):
+            if backpacks[i] + item <= capacity:
+                backpacks[i] += item
+                placed = True
+                break
+        if not placed:
+            backpacks.append(item)
+    return len(backpacks)
+items = [3, 5, 2, 7, 1]
+capacity = 10
+print(f"Minimum number of backpacks needed: {bin_packing(items,capacity)}")
