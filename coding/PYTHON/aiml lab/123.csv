@@ -1,0 +1,11 @@
+patient id,name ,gender,age,bmi,bloodpresser,cholesterol,smoker,physicalactivitylevel,diagnosis,hospital visits,readmitted
+p1001,arjun,m,45,27.5,130/85,high,yes,low,diabetes,5,yes
+p1002,beena,f,34,22,120/80,normal,no,high,none,1,no
+p1003,cyrus,m,59,30.1,140/90,high,yes,low,hypertension,7,yes
+p1004,deepa,f,28,21.3,110/70,normal,no,medium,none,2,no
+p1005,eshwar,m,65,32.5,145/95,high,yes,low,heart disease,8,yes
+p1006,fatima,f,50,29.7,135/85,high,no,medium,diabetes,4,no
+p1007,george,m,40,26.8,125/80,normal,yes,low,hypertension,3,no
+p1008,hema,f,38,24,120/80,normal,no,high,none,1,no
+p1009,imran,m,72,31.2,150/100,high,yes,low,heart disease,10,yes
+p1010,jaya,f,60,28.9,135/88,high,no,medium,diabetes,5,yes
