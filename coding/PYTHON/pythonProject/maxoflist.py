@@ -1,0 +1,3 @@
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+maximum = max(numbers)
+print("Maximum number:", maximum)

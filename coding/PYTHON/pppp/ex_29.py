@@ -1,0 +1,5 @@
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+print("decending order of the list")
+numbers.sort()
+numbers.reverse()
+print(numbers)
