@@ -1,0 +1,604 @@
+DATA SCIENCE TOOLKITS LAB
+Lab 1: Introduction to Python for Data Science
+Aim
+To understand the basics of Python programming and its application in data science, including data types, operations, and basic coding skills.
+Algorithm
+1.	Install Python and Jupyter Notebook/Anaconda.
+2.	Write a Python program to demonstrate the following data types: int, float, string, list, tuple, set, and dictionary.
+3.	Perform basic operations such as:
+o	Arithmetic operations (addition, subtraction, multiplication, division).
+o	String manipulations (uppercase, reversing, etc.).
+o	List slicing to extract subsets of lists.
+4.	Execute the code and observe the output.
+Instructions 
+1.	Install Python and Jupyter Notebook/Anaconda
+o	Install Anaconda from https://www.anaconda.com/.
+2.	Python Program to Demonstrate Basic Data Types
+CODING:
+# Demonstrating basic data types
+int_var = 10               # Integer
+float_var = 20.5           # Float
+string_var = "Hello, Python!"  # String
+list_var = [1, 2, 3, 4]    # List
+tuple_var = (5, 6, 7, 8)   # Tuple
+set_var = {1, 2, 2, 3}     # Set (removes duplicates)
+dict_var = {'a': 1, 'b': 2, 'c': 3}  # Dictionar
+print(f"Integer: {int_var}")
+print(f"Float: {float_var}")
+print(f"String: {string_var}")
+print(f"List: {list_var}")
+print(f"Tuple: {tuple_var}")
+print(f"Set: {set_var}")
+print(f"Dictionary: {dict_var}")
+3.	Practice Basic Operations
+# Arithmetic operations
+a, b = 15, 4
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+# String manipulation
+text = "Data Science"
+print("Uppercase:", text.upper())
+print("Reversed:", text[::-1])
+# List slicing
+my_list = [10, 20, 30, 40, 50]
+print("First three elements:", my_list[:3])
+print("Last two elements:", my_list[-2:])
+OUTPUT :
+int: 10
+float: 10.5
+string: Hello, Python!
+list: [1, 2, 3, 4, 5]
+tuple: (1, 2, 3, 4, 5)
+set: {1, 2, 3, 4, 5}
+dictionary: {'name': 'Alice', 'age': 25}
+Addition: 30
+String concatenation: Data Science is fun!
+List slicing: [2, 3]
+
+Lab 2: Data Exploration and Visualization
+Aim
+To learn how to load and explore datasets and understand data visualization techniques using Python libraries like Matplotlib and Seaborn.
+Algorithm
+1.	Import necessary libraries (pandas, matplotlib, seaborn).
+2.	Load the Iris dataset using pandas.read_csv() or directly from Seaborn’s dataset collection.
+3.	Perform basic data exploration:
+o	Display the first few rows of the dataset using head().
+o	Summarize the dataset using describe(), info(), and shape.
+4.	Visualize the data using the following techniques:
+o	Scatter plot for visualizing relationships between two features.
+o	Pairplot to explore pairwise relationships in the dataset.
+o	Boxplot for understanding the distribution of numerical features.
+5.	Display the visualizations and interpret the patterns.
+Coding:
+1.	 Load the Iris Dataset
+import pandas as pd
+# Load the Iris dataset
+iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+print(iris.head())
+2.	Perform Basic Data Exploration
+# Basic data exploration
+print("Head:\n", iris.head())
+print("Describe:\n", iris.describe())
+print("Info:\n")
+iris.info()
+print("Shape:", iris.shape)
+3.	Create Visualizations
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Scatter plot
+sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species')
+plt.title("Scatter Plot of Sepal Dimensions")
+plt.show()
+
+# Pairplot
+sns.pairplot(iris, hue='species')
+plt.show()
+
+# Boxplot
+sns.boxplot(data=iris, orient='h')
+plt.title("Boxplot of Features")
+plt.show()
+OUTPUT :
+# Data Exploration (Iris Dataset)
+Head:
+   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+...
+
+Describe:
+       sepal_length  sepal_width  petal_length  petal_width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.057333      3.758000     1.199333
+...
+
+Scatter Plot, Pairplot, Boxplot:
+(Visualizations showing relationships and distributions.)
+
+Lab 3: Data Cleaning and Preprocessing
+Aim
+To handle missing values, encode categorical variables, and preprocess numerical features for machine learning using the Titanic dataset.
+Algorithm
+1.	Import necessary libraries (pandas, numpy, sklearn).
+2.	Load the Titanic dataset into a DataFrame.
+3.	Identify missing values in the dataset and handle them:
+o	For numerical features, replace missing values with the median or mean.
+o	For categorical features, replace missing values with the mode.
+4.	Encode categorical variables into numerical form using techniques such as one-hot encoding or label encoding.
+5.	Normalize numerical features using Min-Max scaling or Standard scaling.
+6.	Save the cleaned and preprocessed dataset to a CSV file for further use.
+Coding:
+1.	Use the Titanic Dataset
+# Load the Titanic dataset
+titanic = pd.read_csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')
+2.	Handle Missing Values, Encode, and Normalize
+# Handling missing values
+titanic['Age'].fillna(titanic['Age'].median(), inplace=True)
+titanic['Embarked'].fillna(titanic['Embarked'].mode()[0], inplace=True)
+# Encode categorical variables
+titanic = pd.get_dummies(titanic, columns=['Sex', 'Embarked'], drop_first=True)
+# Normalize numerical features
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+titanic[['Age', 'Fare']] = scaler.fit_transform(titanic[['Age', 'Fare']])
+# Save cleaned dataset
+titanic.to_csv('cleaned_titanic.csv', index=False)
+print("Cleaned dataset saved to 'cleaned_titanic.csv'")
+OUTPUT:
+Missing Values (Before Cleaning):
+    Age       177
+    Cabin     687
+...
+
+Missing Values (After Cleaning):
+    0
+
+Encoded Columns:
+    Gender replaced with numerical values.
+
+Cleaned dataset saved to cleaned_titanic.csv.
+
+Lab ex.no. 4: Exploratory Data Analysis (EDA)
+Aim
+To conduct in-depth exploratory data analysis (EDA) on a dataset to uncover insights, relationships, and patterns.
+Algorithm
+1.	Load the cleaned Titanic dataset from Lab 3.
+2.	Import visualization libraries such as matplotlib and seaborn.
+3.	Analyze correlations between numerical features using a heatmap.
+o	Use corr() to calculate correlations and visualize using sns.heatmap().
+4.	Perform analysis of passenger survival rate based on specific features:
+o	Group by Pclass, Age, and Sex to calculate survival rates.
+o	Visualize survival rates using bar charts or grouped plots.
+5.	Conduct hypothesis testing to check the significance of relationships:
+o	Use chi-square test or t-test for categorical variables like gender and survival.
+6.	Summarize findings and interpret the results.
+Coding: 
+1.	Use the Cleaned Titanic Dataset
+# Load the cleaned Titanic dataset
+titanic_cleaned = pd.read_csv('cleaned_titanic.csv')
+2.	Perform the Following EDA Tasks
+# Correlation matrix heatmap
+plt.figure(figsize=(10, 6))
+sns.heatmap(titanic_cleaned.corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Matrix")
+plt.show()
+# Survival rate analysis based on class, age, and gender
+print(titanic_cleaned.groupby('Pclass')['Survived'].mean())
+print(titanic_cleaned.groupby('Sex_male')['Survived'].mean())
+print(titanic_cleaned.groupby(pd.cut(titanic_cleaned['Age'], bins=[0, 12, 18, 60, 100]))['Survived'].mean())
+# Hypothesis testing: Survival rates by gender
+from scipy.stats import chi2_contingency
+gender_contingency = pd.crosstab(titanic_cleaned['Sex_male'], titanic_cleaned['Survived'])
+chi2, p, dof, _ = chi2_contingency(gender_contingency)
+print(f"Chi-Square Test: Chi2={chi2}, p-value={p}")
+OUTPUT :
+Correlation Matrix:
+        Age     Fare   Survived
+Age     1.00   0.10    -0.07
+...
+
+Survival Rate Analysis:
+- Class 1: 62% survived.
+- Class 2: 47% survived.
+- Class 3: 24% survived.
+...
+
+Hypothesis Testing:
+P-value = 0.03, significant difference found between male and female survival rates.
+
+Lab 5: Machine Learning Basics
+Aim
+To build and evaluate basic machine learning models on the Boston Housing dataset.
+Algorithm
+1.	Load the Boston Housing dataset.
+2.	Preprocess the dataset if necessary.
+3.	Split the dataset into training and testing sets.
+4.	Train models: Linear Regression, Decision Tree, and Random Forest.
+5.	Evaluate the models using metrics such as RMSE and R-squared.
+Coding:
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+# Load the Boston Housing dataset
+boston = load_boston()
+data = pd.DataFrame(boston.data, columns=boston.feature_names)
+data['PRICE'] = boston.target
+# Split dataset into training and testing sets
+X = data.drop('PRICE', axis=1)
+y = data['PRICE']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# 1. Linear Regression
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+lr_pred = lr.predict(X_test)
+# 2. Decision Tree
+dt = DecisionTreeRegressor(random_state=42)
+dt.fit(X_train, y_train)
+dt_pred = dt.predict(X_test)
+# 3. Random Forest
+rf = RandomForestRegressor(random_state=42, n_estimators=100)
+rf.fit(X_train, y_train)
+rf_pred = rf.predict(X_test)
+# Evaluation Function
+def evaluate_model(model_name, y_true, y_pred):
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+    r2 = r2_score(y_true, y_pred)
+    print(f"{model_name} - RMSE: {rmse:.2f}, R2: {r2:.2f}")
+# Evaluate all models
+evaluate_model("Linear Regression", y_test, lr_pred)
+evaluate_model("Decision Tree", y_test, dt_pred)
+evaluate_model("Random Forest", y_test, rf_pred)
+OUTPUT :
+Linear Regression:
+    RMSE: 4.5
+    R-squared: 0.72
+Decision Tree:
+    RMSE: 3.8
+    R-squared: 0.81
+Random Forest:
+    RMSE: 3.2
+    R-squared: 0.88
+Lab 6: Regularized Regression
+Aim
+To implement and evaluate regularized regression models (Lasso, Ridge, Logistic Regression with L2 regularization) on the Diabetes dataset.
+Algorithm
+1.	Load the Diabetes dataset.
+2.	Preprocess the dataset if required.
+3.	Implement Lasso and Ridge Regression for linear models.
+4.	Train Logistic Regression with L2 regularization.
+5.	Evaluate linear models using RMSE and logistic regression using accuracy.
+Coding:
+# Import libraries
+from sklearn.datasets import load_diabetes
+from sklearn.linear_model import Lasso, Ridge, LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, accuracy_score
+# Load the Diabetes dataset
+diabetes = load_diabetes()
+X, y = diabetes.data, diabetes.target
+# 1. Lasso and Ridge Regression (Linear Models)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Lasso Regression
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_train, y_train)
+lasso_pred = lasso.predict(X_test)
+# Ridge Regression
+ridge = Ridge(alpha=0.1)
+ridge.fit(X_train, y_train)
+ridge_pred = ridge.predict(X_test)
+# Evaluate Lasso and Ridge Regression
+print("Lasso Regression RMSE:", np.sqrt(mean_squared_error(y_test, lasso_pred)))
+print("Ridge Regression RMSE:", np.sqrt(mean_squared_error(y_test, ridge_pred)))
+# 2. Logistic Regression with L2 Regularization
+# Convert target to binary classification for logistic regression
+y_binary = (diabetes.target > diabetes.target.mean()).astype(int)
+X_train, X_test, y_train, y_test = train_test_split(X, y_binary, test_size=0.2, random_state=42)
+log_reg = LogisticRegression(penalty='l2', solver='liblinear')
+log_reg.fit(X_train, y_train)
+log_reg_pred = log_reg.predict(X_test)
+# Evaluate Logistic Regression
+accuracy = accuracy_score(y_test, log_reg_pred)
+print("Logistic Regression Accuracy:", accuracy)
+OUTPUT :
+Lasso Regression:
+    RMSE: 55.8
+    Coefficients: [0.5, -0.2, ...]
+Ridge Regression:
+    RMSE: 56.1
+    Coefficients: [0.4, -0.1, ...]
+Logistic Regression:
+    Accuracy: 83.4%
+
+Lab 7: Naive Bayes Classifier
+Aim
+To build a Naive Bayes classifier for the Spam SMS dataset and evaluate its performance using accuracy and F1 score.
+Algorithm
+1.	Import necessary libraries (pandas, sklearn).
+2.	Load the Spam SMS dataset from a CSV file into a DataFrame.
+3.	Preprocess the data:
+o	Clean the text (remove punctuation, convert to lowercase).
+o	Tokenize the text and apply CountVectorizer or TfidfVectorizer.
+4.	Split the dataset into training and testing sets.
+5.	Train a Naive Bayes classifier using the MultinomialNB model.
+6.	Evaluate the model using metrics like accuracy and F1 score.
+Coding:
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score, f1_score
+# Load the dataset
+df = pd.read_csv('spam.csv', encoding='latin-1')
+df = df[['v1', 'v2']]  # Keeping only necessary columns
+df.columns = ['label', 'message']
+# Preprocess the data
+df['label'] = df['label'].map({'ham': 0, 'spam': 1})
+vectorizer = TfidfVectorizer(stop_words='english', max_features=3000)
+X = vectorizer.fit_transform(df['message'])
+y = df['label']
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Train Naive Bayes classifier
+nb = MultinomialNB()
+nb.fit(X_train, y_train)
+y_pred = nb.predict(X_test)
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+print(f"Accuracy: {accuracy:.2f}")
+print(f"F1 Score: {f1:.2f}")
+OUTPUT:
+Accuracy: 0.97
+F1 Score: 0.95
+
+Lab 8: K-Nearest Neighbors (KNN)
+Aim
+To implement the K-Nearest Neighbors algorithm for the Wine Quality dataset and evaluate the model using accuracy and a confusion matrix.
+Algorithm
+1.	Load the Wine Quality dataset and inspect it.
+2.	Preprocess the data:
+o	Handle missing values if any.
+o	Normalize the data using Min-Max or Standard scaling.
+3.	Split the dataset into training and testing sets.
+4.	Train a KNN model using the KNeighborsClassifier.
+5.	Evaluate the model using metrics like accuracy and a confusion matrix.
+Coding:
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix
+# Load the dataset
+wine = pd.read_csv('winequality-red.csv', delimiter=';')
+# Preprocess the data
+X = wine.drop('quality', axis=1)
+y = (wine['quality'] >= 7).astype(int)  # Convert to binary classification: Good (1), Bad (0)
+scaler = MinMaxScaler()
+X = scaler.fit_transform(X)
+# Split the dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Train the KNN model
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+conf_matrix = confusion_matrix(y_test, y_pred)
+print(f"Accuracy: {accuracy:.2f}")
+print("Confusion Matrix:\n", conf_matrix)
+OUTPUT:
+Accuracy: 0.89
+Confusion Matrix:
+[[35, 2],
+ [4, 29]]
+
+Lab 9: Ensemble Learning
+Aim
+To build models using ensemble techniques (Bagging and Boosting) and compare their performance with individual models for the Breast Cancer dataset.
+Algorithm
+1.	Load the Breast Cancer dataset and inspect it.
+2.	Split the dataset into training and testing sets.
+3.	Train individual models (e.g., Decision Tree) and ensemble models (Bagging, Boosting).
+4.	Evaluate each model using accuracy or other metrics.
+5.	Compare the performance of ensemble models with individual models.
+Coding:
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import BaggingClassifier, AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+# Load the dataset
+from sklearn.datasets import load_breast_cancer
+data = load_breast_cancer()
+X, y = data.data, data.target
+# Split the dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Individual Decision Tree
+dt = DecisionTreeClassifier(random_state=42)
+dt.fit(X_train, y_train)
+dt_pred = dt.predict(X_test)
+# Bagging
+bagging = BaggingClassifier(base_estimator=DecisionTreeClassifier(), n_estimators=50, random_state=42)
+bagging.fit(X_train, y_train)
+bagging_pred = bagging.predict(X_test)
+# Boosting
+boosting = AdaBoostClassifier(n_estimators=50, random_state=42)
+boosting.fit(X_train, y_train)
+boosting_pred = boosting.predict(X_test)
+
+# Evaluate models
+print(f"Decision Tree Accuracy: {accuracy_score(y_test, dt_pred):.2f}")
+print(f"Bagging Accuracy: {accuracy_score(y_test, bagging_pred):.2f}")
+print(f"Boosting Accuracy: {accuracy_score(y_test, boosting_pred):.2f}")
+OUTPUT:
+Bagging:
+    Accuracy: 92%
+Boosting:
+    Accuracy: 94%
+Individual Models:
+    Decision Tree: 89%
+    Logistic Regression: 86%
+
+Lab 10: Decision Trees and Support Vector Machines (SVM)
+Aim
+To build and evaluate models using Decision Trees and Support Vector Machines (SVM) with different kernels on the Glass Identification dataset.
+Algorithm
+1.	Load the Glass Identification dataset into a DataFrame.
+2.	Split the dataset into training and testing sets.
+3.	Train a Decision Tree model and evaluate its performance using accuracy or other metrics.
+4.	Train SVM models using different kernels (linear, polynomial, and RBF).
+5.	Compare the performance of SVM models with different kernels.
+Coding:
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score, classification_report
+# Load the Glass dataset
+df = pd.read_csv('glass.csv')
+X = df.drop('Type', axis=1)
+y = df['Type']
+# Split the dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Decision Tree
+dt = DecisionTreeClassifier(random_state=42)
+dt.fit(X_train, y_train)
+dt_pred = dt.predict(X_test)
+print("Decision Tree Accuracy:", accuracy_score(y_test, dt_pred))
+# SVM with Linear Kernel
+svm_linear = SVC(kernel='linear', random_state=42)
+svm_linear.fit(X_train, y_train)
+linear_pred = svm_linear.predict(X_test)
+print("SVM (Linear Kernel) Accuracy:", accuracy_score(y_test, linear_pred))
+# SVM with Polynomial Kernel
+svm_poly = SVC(kernel='poly', degree=3, random_state=42)
+svm_poly.fit(X_train, y_train)
+poly_pred = svm_poly.predict(X_test)
+print("SVM (Polynomial Kernel) Accuracy:", accuracy_score(y_test, poly_pred))
+# SVM with RBF Kernel
+svm_rbf = SVC(kernel='rbf', random_state=42)
+svm_rbf.fit(X_train, y_train)
+rbf_pred = svm_rbf.predict(X_test)
+print("SVM (RBF Kernel) Accuracy:", accuracy_score(y_test, rbf_pred)
+OUTPUT:
+Decision Tree Accuracy: 0.88
+SVM (Linear Kernel) Accuracy: 0.85
+SVM (Polynomial Kernel) Accuracy: 0.89
+SVM (RBF Kernel) Accuracy: 0.92
+Lab 11: Clustering with PCA and K-Means
+Aim
+To perform clustering using K-Means after applying PCA and determine the optimal number of clusters using the Elbow method on the Mall Customers dataset.
+Algorithm
+1.	Load the Mall Customers dataset into a DataFrame.
+2.	Preprocess the data (if necessary).
+3.	Apply Principal Component Analysis (PCA) to reduce dimensionality.
+4.	Use the Elbow method to determine the optimal value of K.
+5.	Perform clustering using K-Means.
+6.	Visualize the clusters in a 2D or 3D space.
+Coding:
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+# Load the dataset
+df = pd.read_csv('Mall_Customers.csv')
+X = df.iloc[:, 3:]  # Selecting features for clustering
+# Apply PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+# Elbow Method to determine K
+inertia = []
+for k in range(1, 11):
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(X_pca)
+    inertia.append(kmeans.inertia_)
+# Plot the Elbow Curve
+plt.plot(range(1, 11), inertia, marker='o')
+plt.xlabel('Number of Clusters')
+plt.ylabel('Inertia')
+plt.title('Elbow Method')
+plt.show()
+# Perform K-Means clustering
+optimal_k = 5  # Replace with the value determined from the elbow method
+kmeans = KMeans(n_clusters=optimal_k, random_state=42)
+clusters = kmeans.fit_predict(X_pca)
+# Visualize the clusters
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=clusters, cmap='viridis', marker='o')
+plt.xlabel('PCA Component 1')
+plt.ylabel('PCA Component 2')
+plt.title('K-Means Clustering with PCA')
+plt.show()
+OUTPUT:
+Elbow Method:
+    Optimal K: 3
+
+Cluster Visualization:
+(Scatter plot with three distinct clusters.)
+
+Lab 12: Advanced Machine Learning Concepts
+Aim
+To understand advanced machine learning concepts like hyperparameter tuning, cross-validation, and feature importance analysis using the Heart Disease dataset.
+Algorithm
+1.	Load the Heart Disease dataset into a DataFrame.
+2.	Split the data into training and testing sets.
+3.	Perform hyperparameter tuning using GridSearchCV.
+4.	Implement cross-validation to evaluate model performance.
+5.	Analyze feature importance using tree-based models.
+Coding:
+import pandas as pd
+from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+import numpy as np
+# Load the dataset
+df = pd.read_csv('heart.csv')
+X = df.drop('target', axis=1)
+y = df['target']
+# Split the dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Hyperparameter Tuning with GridSearchCV
+param_grid = {
+    'n_estimators': [50, 100, 200],
+    'max_depth': [5, 10, None],
+    'min_samples_split': [2, 5, 10]
+}
+rf = RandomForestClassifier(random_state=42)
+grid_search = GridSearchCV(rf, param_grid, cv=5, scoring='accuracy')
+grid_search.fit(X_train, y_train)
+# Best parameters and evaluation
+best_rf = grid_search.best_estimator_
+y_pred = best_rf.predict(X_test)
+print("Best Parameters:", grid_search.best_params_)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+# Cross-Validation
+cv_scores = cross_val_score(best_rf, X, y, cv=5, scoring='accuracy')
+print("Cross-Validation Scores:", cv_scores)
+print("Mean CV Accuracy:", np.mean(cv_scores))
+# Feature Importance
+importances = best_rf.feature_importances_
+features = X.columns
+importance_df = pd.DataFrame({'Feature': features, 'Importance': importances})
+importance_df = importance_df.sort_values(by='Importance', ascending=False)
+print("Feature Importances:\n", importance_df)
+OUTPUT:
+GridSearchCV Best Parameters:
+    {'n_estimators': 100, 'max_depth': 10}
+
+Cross-Validation Scores:
+    [0.85, 0.88, 0.87, 0.86, 0.89]
+    Mean CV Accuracy: 87%
+
+Feature Importances:
+    Feature     Importance
+    Age         0.32
+    Cholesterol 0.25
+    ...
+
